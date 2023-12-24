@@ -16,7 +16,7 @@ spec:
         app: ollama-ui
     spec:
       containers:
-        - name: ollama-webui
+        - name: ollama-ui
           image: ghcr.io/ollama-webui/ollama-webui:main
           ports:
             - containerPort: 8080
@@ -30,7 +30,7 @@ metadata:
   name: ollama-ui
 spec:
   selector:
-    app: ollama-webui
+    app: ollama-ui
   ports:
     - protocol: TCP
       port: 3000
