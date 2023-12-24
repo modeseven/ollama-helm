@@ -1,0 +1,38 @@
+# docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway --name ollama-webui --restart always ghcr.io/ollama-webui/ollama-webui:main
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama-ui
+  labels:
+    app: ollama-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ollama-ui
+  template:
+    metadata:
+      labels:
+        app: ollama-ui
+    spec:
+      containers:
+        - name: ollama-webui
+          image: ghcr.io/ollama-webui/ollama-webui:main
+          ports:
+            - containerPort: 8080
+          env:
+            - name: OLLAMA_API_BASE_URL
+              value: "http://ollama.192.168.1.150.nip.io/"           # todo: we could use the cluster service name here.. try later..
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ollama-ui
+spec:
+  selector:
+    app: ollama-ui
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 8080
+
