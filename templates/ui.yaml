@@ -30,7 +30,7 @@ metadata:
   name: ollama-ui
 spec:
   selector:
-    app: ollama-ui
+    app: ollama-webui
   ports:
     - protocol: TCP
       port: 3000
