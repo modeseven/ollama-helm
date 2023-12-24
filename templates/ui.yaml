@@ -22,7 +22,7 @@ spec:
             - containerPort: 8080
           env:
             - name: OLLAMA_API_BASE_URL
-              value: "http://ollama.192.168.1.150.nip.io/api"           # todo: we could use the cluster service name here.. try later..
+              value: "http://ollama:11434/api"           # todo: we could use the cluster service name here.. try later..
 ---
 apiVersion: v1
 kind: Service
