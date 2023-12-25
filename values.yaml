@@ -70,11 +70,11 @@ ingress:
 ##
 resources:
   requests:
-    memory: 8192Mi
-    cpu: 4000m
-  limits:
     memory: 16384Mi
     cpu: 8000m
+  limits:
+    memory: 32768Mi
+    cpu: 1200m
 
 ## Configure extra options for liveness probe
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
