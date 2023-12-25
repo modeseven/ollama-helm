@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: "ollama"
+  labels:
+    type: "local"
+spec:
+  storageClassName: "weakssd"
+  capacity:
+    storage: "500Gi"
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/mnt/ai/ollama"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ollama
+  namespace: ollama
+spec:
+  volumeName: ollama
+  storageClassName: "weakssd"
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 500Gi

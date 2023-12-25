@@ -70,11 +70,11 @@ ingress:
 ##
 resources:
   requests:
-    memory: 4096Mi
-    cpu: 2000m
-  limits:
     memory: 8192Mi
     cpu: 4000m
+  limits:
+    memory: 16384Mi
+    cpu: 8000m
 
 ## Configure extra options for liveness probe
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
@@ -135,7 +135,7 @@ volumeMounts: []
 #   readOnly: true
 
 persistentVolume:
-  enabled: false
+  enabled: true
 
   ## Ollama server data Persistent Volume access modes
   ## Must match those of existing PV or dynamic provisioner
@@ -152,11 +152,11 @@ persistentVolume:
   ## created + ready PVC here. If set, this Chart will not create the default PVC.
   ## Requires server.persistentVolume.enabled: true
   ##
-  existingClaim: ""
+  existingClaim: "ollama"
 
   ## Ollama server data Persistent Volume size
   ##
-  size: 30Gi
+  size: 300Gi
 
   ## Ollama server data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>
