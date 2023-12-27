@@ -70,10 +70,10 @@ ingress:
 ##
 resources:
   requests:
-    memory: 16384Mi
+    memory: 32768Mi
     cpu: 6000m
   limits:
-    memory: 32768Mi
+    memory: 65536Mi
     cpu: 9000m
 
 ## Configure extra options for liveness probe
