@@ -20,9 +20,16 @@ spec:
           image: ghcr.io/ollama-webui/ollama-webui:main
           ports:
             - containerPort: 8080
+          volumeMounts:
+          - name: ollama-webui-storage
+            mountPath: /app/backend/data
           env:
             - name: OLLAMA_API_BASE_URL
-              value: "http://ollama.ollama.svc.cluster.local:11434/api"        
+              value: "http://ollama.ollama.svc.cluster.local:11434/api"
+      volumes:
+      - name: ollama-webui-storage
+        persistentVolumeClaim:
+          claimName: ollama-ui        
 ---
 apiVersion: v1
 kind: Service
