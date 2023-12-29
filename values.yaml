@@ -55,9 +55,9 @@ ingress:
   className: ""
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "180"  # 180 seconds = 3 minutes
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "180"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "180"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "600"  # 600 seconds = 10 minutes
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
   hosts:
     - host: ollama.192.168.1.150.nip.io
       paths:
